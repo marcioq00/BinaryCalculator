@@ -1,29 +1,41 @@
-let binaryValueFirst = "10";
+import { validateNegativeNumbers } from "./variableValidation.js";
+let binaryValueFirst = "1";
 let binaryValueSecond = "5";
+let validateNumbers;
 
-let convertedArray = convertToNumber(binaryValueFirst, binaryValueSecond);
-let resultMultiplication = multiplication(convertedArray);
-convertToBinarySystem(binaryValueFirst, binaryValueSecond);
-console.log(convertToBinarySystem(resultMultiplication));
+try {
+  validateNumbers = validateNegativeNumbers(
+    binaryValueFirst,
+    binaryValueSecond
+  );
+  let convertedArray = convertToNumber(validateNumbers);
+  let resultMultiplication = multiplication(convertedArray);
 
-function convertToBinarySystem(resultMultiplication) {
-  return resultMultiplication.toString(2);
-}
-
-function convertToNumber(binaryValueFirst, binaryValueSecond) {
-  let arr = [binaryValueFirst, binaryValueSecond];
-  for (let i = 0; i < 2; i++) {
-    arr[i] = Number(arr[i]);
+  function convertToNumber(validateNumbers) {
+    for (let i = 0; i < validateNumbers.length; i++) {
+      validateNumbers[i] = Number(validateNumbers[i]);
+    }
+    return validateNumbers;
   }
-  return arr;
-}
 
-function multiplication(convertedArray) {
-  let result = 1;
-  for (let i = 0; i < convertedArray.length; i++) {
-    result *= convertedArray[i];
+  function multiplication(convertedArray) {
+    let result = 1;
+    for (let i = 0; i < convertedArray.length; i++) {
+      result *= convertedArray[i];
+    }
+    return result;
   }
-  return result;
+
+  function convertToBinarySystem(resultMultiplication) {
+    return resultMultiplication.toString(2);
+  }
+
+  convertToBinarySystem(resultMultiplication);
+
+  console.log(convertToBinarySystem(resultMultiplication));
+} catch (error) {
+  //console.error(error);
 }
 
 // pozwolic uzytkownikowi na wprowadzenie wiecej niz dwoch wartosci
+// mnozenie ulamkow
