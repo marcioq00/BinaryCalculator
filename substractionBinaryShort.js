@@ -2,7 +2,7 @@ let binaryValueFirst = "10";
 let binaryValueSecond = "5";
 
 let convertedArray = convertToNumber(binaryValueFirst, binaryValueSecond);
-let resultAddition = Addition(convertedArray);
+let resultAddition = addition(convertedArray);
 
 convertToBinarySystem(binaryValueFirst, binaryValueSecond);
 console.log(convertToBinarySystem(resultAddition));
@@ -19,7 +19,7 @@ function convertToNumber(binaryValueFirst, binaryValueSecond) {
   return arr;
 }
 
-function Addition(convertedArray) {
+function addition(convertedArray) {
   let result = convertedArray[0];
   for (let i = 1; i < convertedArray.length; i++) {
     result -= convertedArray[i];
