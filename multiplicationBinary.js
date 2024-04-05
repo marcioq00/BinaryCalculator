@@ -6,6 +6,7 @@ let tab = [];
 let tab1 = [];
 let result = [];
 let temp = "";
+// kod dodany z brancha test
 for (let i = 0; i < wieksza.length; i++) {
   tab1[i] = parseInt(wieksza[i]);
 }
