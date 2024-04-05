@@ -1,7 +1,14 @@
-let binaryValueFirst = "5";
-let binaryValueSecond = "11";
+// to nie do konca powinien byc plik tylko do dodawania poniewaz w zm w zaleznosci od znakow zmiennych dodawanie moze zmienic sie na odejmowanie
+let binaryValueFirst = "15";
+let binaryValueSecond = "3";
 
 let convertedArray = convertToNumber(binaryValueFirst, binaryValueSecond);
+let resultAddition = addition(convertedArray);
+console.log("Wynik dodawania: " + resultAddition);
+let resultBinary = convertToBinarySystem(resultAddition);
+let arrConvertBinary = convertToBinarySystemTab(convertedArray);
+let binaryData = checkBinaryLength(arrConvertBinary);
+let resultReady = prepareResult(resultBinary);
 
 function convertToNumber(binaryValueFirst, binaryValueSecond) {
   let arr = [binaryValueFirst, binaryValueSecond];
@@ -11,8 +18,6 @@ function convertToNumber(binaryValueFirst, binaryValueSecond) {
   return arr;
 }
 
-let resultAddition = addition(convertedArray);
-
 function addition(tabConvertToNumber) {
   let resultAddition = 0;
   for (let i = 0; i < tabConvertToNumber.length; i++) {
@@ -20,21 +25,20 @@ function addition(tabConvertToNumber) {
   }
   return resultAddition;
 }
-let resultBinary = convertToBinarySystem(resultAddition);
 
 function convertToBinarySystem(resultAddition) {
-  return resultAddition.toString(2);
+  let convertToPositiveNumber = Math.abs(resultAddition.toString(2));
+  return convertToPositiveNumber;
 }
 
-let arrConvertBinary = convertToBinarySystemTab(convertedArray);
 function convertToBinarySystemTab(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i] = arr[i].toString(2);
   }
+  console.log(arr);
   return convertedArray;
 }
 
-let binaryData = checkBinaryLength(arrConvertBinary);
 function checkBinaryLength(arrConvertBinary) {
   let binaryDataArray = [];
   for (let i = 0; i < arrConvertBinary.length; i++) {
@@ -47,8 +51,24 @@ function checkBinaryLength(arrConvertBinary) {
   return binaryDataArray;
 }
 
-function displayResult(resultBinary) {
-  let result = "0." + resultBinary;
+function checkSign(resultAddition) {
+  let result = 0;
+  if (resultAddition > 0) {
+    result = "0.";
+  } else {
+    result = "1.";
+  }
   return result;
 }
-console.log(displayResult(resultBinary));
+
+function prepareResult(resultBinary) {
+  let result;
+  let setSign = checkSign(resultAddition);
+  result = setSign + resultBinary;
+  return result;
+}
+
+function displayResult(resultReady) {
+  return resultReady;
+}
+console.log(displayResult(resultReady));
