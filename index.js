@@ -11,7 +11,7 @@ for (let i = 0; i < mniejsza.length; i++) {
 for (let i = 0; i < wieksza.length; i++) {
   tab1[i + 1] = parseInt(wieksza[i]);
 }
-//console.log(tab);
+console.log(tab);
 //console.log(tab1);
 
 let ok = tab1.length + 1;
